@@ -1,0 +1,1 @@
+const receiptMap = new Map();
