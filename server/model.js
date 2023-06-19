@@ -6,11 +6,12 @@ const receiptMap = new Map();
 
 // CREATE GET AND SET FUNCTIONS FOR THE HASHMAP
 module.exports = {
-  setReceipt: (receipt) => {
-    const hash = SHA256(receipt).toString();
-    receiptMap.set(hash, receipt);
+  setReceipt: (receiptData) => {
+    const hash = SHA256(JSON.stringify(receiptData)).toString();
+    receiptMap.set(hash, receiptData);
+    return hash;
   },
-  getReceipt: (id) => {
+  findReceiptById: (id) => {
     return receiptMap.get(id);
   }
 };
