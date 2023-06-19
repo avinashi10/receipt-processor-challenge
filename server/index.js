@@ -1,11 +1,14 @@
 // LIBRARY IMPORTS
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 
 // SET APP AS AN EXPRESS SERVER
 const app = express();
 
 // ADD APP-WIDE MIDDLEWARE
+app.use(express.json());
+app.use(morgan('dev'));
 
 // REQUIRE ROUTER
 const router = require('./routes.js');

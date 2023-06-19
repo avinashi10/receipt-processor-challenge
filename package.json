@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/fetch-rewards/receipt-processor-challenge#readme",
   "dependencies": {
-    "crypto-js": "^4.1.1",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
   }
 }
