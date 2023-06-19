@@ -1,5 +1,6 @@
 // LOCAL IMPORTS
 const receiptModel = require('./model.js');
+const calculatePoints = require('./points.js');
 
 module.exports = {
   createReceipt: (req, res) => {
