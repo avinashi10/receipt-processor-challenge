@@ -4,19 +4,24 @@ const calculatePoints = require('./points.js');
 
 module.exports = {
   createReceipt: (req, res) => {
-    receiptModel.setReceipt(req.body)
-      .then((receiptId) => res.json({ id: receiptId }))
-      .catch((err) => res.status(400).send(err));
+    try {
+      const receiptId = receiptModel.setReceipt(req.body);
+      res.json({ id: receiptId });
+    } catch (error) {
+      res.status(400).send(error);
+    }
   },
   getPoints: (req, res) => {
-    receiptModel.findReceiptById(req.params)
-      .then((receiptData) => {
-        // Calculate points based on receipt data
+    try {
+      const receiptData = receiptModel.findReceiptById(req.params.id);
+      if (receiptData) {
         const points = calculatePoints(receiptData);
         res.json({ points: points });
-      })
-      .catch((err) => {
-        res.status(404).send("No receipt found for that id: ", err)
-      })
-  }
+      } else {
+        res.status(404).send("No receipt found for that id");
+      }
+    } catch (error) {
+      res.status(500).send("Internal server error");
+    }
+  },
 }
