@@ -8,10 +8,10 @@ This repository contains the source code for the Fetch My Points App, which is a
 Follow the steps below to run the Fetch My Points App on your machine using Docker.
 
 ### Prerequisites
-- Docker installed on your machine. Refer to the official Docker installation instructions for your operating system.
+- Docker installed and running on your machine. Refer to the official Docker installation instructions for your operating system.
 
 ### Clone the Repository
-Clone the repository for the Receipt Processor App by running the following command:
+Clone the repository for the Fetch My Points App by running the following command:
 `git clone https://github.com/avinashi10/receipt-processor-challenge.git`
 
 ### Navigate to the Project Directory
