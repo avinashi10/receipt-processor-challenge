@@ -41,8 +41,9 @@ const calculatePoints = (receipt) => {
 
   // 6 points if the day in the purchase date is odd
   const purchaseDate = new Date(receipt.purchaseDate);
-  console.log("purchase date: ", purchaseDate)
-  const purchaseDay = purchaseDate.getDate();
+  console.log("purchase date: ", purchaseDate);
+  const purchaseDay = purchaseDate.getUTCDate();
+  console.log("purchase day: ", purchaseDay);
   if (purchaseDay % 2 === 1) {
     points += 6;
   }
@@ -52,8 +53,11 @@ const calculatePoints = (receipt) => {
   // 10 points if the time of purchase is after 2:00pm and before 4:00pm
   const purchaseTime = new Date(`1970-01-01 ${receipt.purchaseTime}`);
   const purchaseHour = purchaseTime.getHours();
-  if (purchaseHour > 14 && purchaseHour < 16) {
-    points += 10;
+  const purchaseMinute = purchaseTime.getMinutes();
+  if (purchaseHour > 14 || (purchaseHour === 14 && purchaseMinute >= 0)) {
+    if (purchaseHour < 16 || (purchaseHour === 16 && purchaseMinute === 0)) {
+      points += 10;
+    }
   }
   console.log("purchased 2-4 should be 109: ", points);
 
