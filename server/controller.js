@@ -15,8 +15,9 @@ module.exports = {
     try {
       const receiptData = receiptModel.findReceiptById(req.params.id);
       if (receiptData) {
-        // const points = calculatePoints(receiptData);
-        res.json(receiptData); //testing to see if it can do a simple get, change to points later
+        const points = calculatePoints(receiptData);
+        console.log("POINTS: ", points);
+        res.json({ points: points});
       } else {
         res.status(404).send("No receipt found for that id");
       }
