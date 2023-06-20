@@ -7,8 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "server-dev": "npx nodemon --watch server server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
