@@ -27,4 +27,4 @@ Run the Docker container based on the built image using the following command:
 `docker run -d -p 1000:3000 --name fetch_the_dog --rm fetch-my-points`
 
 ### Access the Webserver
-The webserver is now live. You can check that it's live by navigating to http://localhost:1000 in your web browser. Then test the server using an API testing tool like Postman.
+The webserver is now live. You can test the webservice by sending GET and POST requests to http://localhost:1000 using an API testing tool like Postman.
